@@ -1,0 +1,9 @@
+name: PluginStudying
+version: '${project.version}'
+main: com.paiique.pluginstudying.PluginStudying
+api-version: '1.20'
+
+commands:
+  playerTerrain:
+    description: Enables and disables terrain modification.
+    usage: /<command> <enable/disable>
