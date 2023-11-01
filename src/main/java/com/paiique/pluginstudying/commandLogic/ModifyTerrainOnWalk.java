@@ -1,5 +1,6 @@
 package com.paiique.pluginstudying.commandLogic;
 
+import com.paiique.pluginstudying.commandLogic.util.ParticleUtil;
 import net.kyori.adventure.text.Component;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -28,7 +29,11 @@ public class ModifyTerrainOnWalk {
                         Location location = new Location(player.getWorld(), playerLocation.x(), playerLocation.y() - 0.2, playerLocation.z());
                         Material blockBelowPlayer = location.getBlock().getType();
                         if (blockBelowPlayer != Material.AIR && blockBelowPlayer != Material.DIAMOND_BLOCK && location.getBlock().isCollidable()) {
-                            setParticles(location, player);
+
+                            ParticleUtil.createRedstoneParticle(Color.BLUE, new Location(player.getWorld(),
+                                    location.getBlockX() + 0.5, location.getBlockY() + 1,
+                                    location.getBlockZ() + 0.5), 60, 0.5, 0, 0.5);
+
                             location.getBlock().setType(Material.DIAMOND_BLOCK);
                         }
                     }
@@ -40,14 +45,6 @@ public class ModifyTerrainOnWalk {
             }
         }.runTaskTimer(plugin, 1, 0);
 
-    }
-
-    private static void setParticles(Location location, Player player) {
-        Particle.REDSTONE.builder().location(new Location(player.getWorld(),
-                        location.getBlockX() + 0.5, location.getBlockY() + 1,
-                        location.getBlockZ() + 0.5)).allPlayers()
-                .offset(0.5, 0, 0.5)
-                .count(60).color(Color.BLUE).spawn();
     }
 
     public static void setPlayerCanModifyTerrain(boolean bool) {
