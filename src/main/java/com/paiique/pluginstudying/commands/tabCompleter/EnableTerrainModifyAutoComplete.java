@@ -7,11 +7,11 @@ import org.bukkit.util.StringUtil;
 
 import java.util.*;
 //Yes that is the class name
-public class CommandEnableTerrainModifyAutoComplete implements TabCompleter {
+public class EnableTerrainModifyAutoComplete implements TabCompleter {
     private List<String> subcommands = new ArrayList<>(Arrays.asList("enable","disable"));
 
     Plugin plugin = null;
-    public CommandEnableTerrainModifyAutoComplete(Plugin plugin) {
+    public EnableTerrainModifyAutoComplete(Plugin plugin) {
         this.plugin = plugin;
     }
 

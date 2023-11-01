@@ -7,3 +7,7 @@ commands:
   playerTerrain:
     description: Enables and disables terrain modification.
     usage: /<command> <enable/disable>
+
+  grabTheSun:
+    description: Enables and disables sun grabber (???????????????).
+    usage: /<command> <grab/release>

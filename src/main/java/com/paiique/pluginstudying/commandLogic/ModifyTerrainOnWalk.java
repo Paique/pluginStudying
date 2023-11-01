@@ -1,4 +1,4 @@
-package com.paiique.pluginstudying.terrain;
+package com.paiique.pluginstudying.commandLogic;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.*;
