@@ -50,7 +50,7 @@ public class CommandGrabTheSun implements CommandExecutor {
             } else if (strings.length > 1) {
                 commandSender.sendMessage("Too many arguments");
             } else {
-                commandSender.sendMessage("Comando inválido");
+                commandSender.sendMessage("Invalid arguments.");
             }
         }
         return false;
