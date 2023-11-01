@@ -1,11 +1,10 @@
 package com.paiique.pluginstudying.commandLogic;
-
-import net.kyori.adventure.text.ComponentLike;
+import com.paiique.pluginstudying.commandLogic.util.ParticleUtil;
+import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
-
-
 import java.util.UUID;
 
 public class GrabTheSun {
@@ -39,6 +38,9 @@ public class GrabTheSun {
                 }
 
                 player.getWorld().setTime(timeToSet);
+                ParticleUtil.createParticle(player.getLocation(), Particle.ASH, 100, 5, 5, 5);
+                ParticleUtil.createParticle(new Location(player.getWorld() ,player.getX(), player.getY(), player.getZ()),
+                        Particle.DRIP_LAVA, 50, 3, 0, 3);
 
             }
 
