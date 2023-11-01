@@ -31,12 +31,14 @@ public class GrabTheSun {
                 double getPlayerCamSide = player.getFacing().getDirection().getX();
 
                 if (getPlayerCamSide == -1.0) {
-                    long time = (long) ((getPlayerCamY * -1 + 2.995) * 4000);
-                    timeToSet = (time != 0 ? time : 6000)  ;
+                    timeToSet = (long) (( (getPlayerCamY > 0.73 ? getPlayerCamY + 0.05 : getPlayerCamY)  * -1 + 2.995) * 4000 + 800);
+
                 } else {
-                    timeToSet = (long) ((player.getLocation().getDirection().getY()) * 4000);
+                    timeToSet = (long) ((getPlayerCamY) * 4000 - 800);
                 }
 
+                System.out.println(getPlayerCamY);
+                player.sendMessage(String.valueOf(timeToSet));
                 player.getWorld().setTime(timeToSet);
                 ParticleUtil.createParticle(player.getLocation(), Particle.ASH, 100, 5, 5, 5);
                 ParticleUtil.createParticle(new Location(player.getWorld() ,player.getX(), player.getY(), player.getZ()),
