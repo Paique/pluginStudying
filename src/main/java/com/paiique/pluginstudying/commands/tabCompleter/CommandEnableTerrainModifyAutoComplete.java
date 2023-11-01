@@ -6,7 +6,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.util.StringUtil;
 
 import java.util.*;
-
+//Yes that is the class name
 public class CommandEnableTerrainModifyAutoComplete implements TabCompleter {
     private List<String> subcommands = new ArrayList<>(Arrays.asList("enable","disable"));
 
