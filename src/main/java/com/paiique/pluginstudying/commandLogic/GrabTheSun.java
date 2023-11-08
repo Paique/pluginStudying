@@ -37,8 +37,6 @@ public class GrabTheSun {
                     timeToSet = (long) ((getPlayerCamY) * 4000 - 800);
                 }
 
-                System.out.println(getPlayerCamY);
-                player.sendMessage(String.valueOf(timeToSet));
                 player.getWorld().setTime(timeToSet);
                 ParticleUtil.createParticle(player.getLocation(), Particle.ASH, 100, 5, 5, 5);
                 ParticleUtil.createParticle(new Location(player.getWorld() ,player.getX(), player.getY(), player.getZ()),

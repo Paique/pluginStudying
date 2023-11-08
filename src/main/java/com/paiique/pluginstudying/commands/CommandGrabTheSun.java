@@ -1,7 +1,7 @@
 package com.paiique.pluginstudying.commands;
 
 import com.paiique.pluginstudying.commandLogic.GrabTheSun;
-import com.paiique.pluginstudying.commands.tabCompleter.GrabTheSunAutoComplete;
+import com.paiique.pluginstudying.commandLogic.util.CommandTab;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,10 +12,10 @@ import org.bukkit.plugin.Plugin;
 import static com.paiique.pluginstudying.commandLogic.GrabTheSun.*;
 
 public class CommandGrabTheSun implements CommandExecutor {
-    Plugin plugin = null;
-    public CommandGrabTheSun(PluginCommand grabthesun, Plugin plugin) {
+    private Plugin plugin;
+    public CommandGrabTheSun(PluginCommand pluginCommand, Plugin plugin, String[] commandList) {
         this.plugin = plugin;
-        grabthesun.setTabCompleter(new GrabTheSunAutoComplete(plugin));
+        pluginCommand.setTabCompleter(new CommandTab(plugin, commandList));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class CommandGrabTheSun implements CommandExecutor {
                     setPlayerIsHoldingTheSun(true);
                     setPlayerUUID(player.getUniqueId());
                     new GrabTheSun().init(plugin);
-                    commandSender.sendMessage(  "WHAT ARE YOU DOING IT'S HOT AS HELL!");
+                    commandSender.sendMessage("WHAT ARE YOU DOING IT'S HOT AS HELL!");
                 }
                 return true;
 
@@ -44,7 +44,6 @@ public class CommandGrabTheSun implements CommandExecutor {
                     setPlayerIsHoldingTheSun(false);
                     commandSender.sendMessage("You released the sun, it was so scary, PLEASE NEVER DO THAT AGAIN!");
                 }
-
                 return true;
 
             } else if (strings.length > 1) {

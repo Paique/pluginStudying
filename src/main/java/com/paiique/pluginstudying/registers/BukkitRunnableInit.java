@@ -5,6 +5,6 @@ import org.bukkit.plugin.Plugin;
 
 public class BukkitRunnableInit {
     public BukkitRunnableInit(Plugin plugin) {
-        new ModifyTerrainOnWalk().init(plugin);
+
     }
 }

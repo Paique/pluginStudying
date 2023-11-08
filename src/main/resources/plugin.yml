@@ -2,7 +2,7 @@ name: PluginStudying
 version: '${project.version}'
 main: com.paiique.pluginstudying.PluginStudying
 api-version: '1.20'
-
+debug: true
 commands:
   playerTerrain:
     description: Enables and disables terrain modification.
@@ -11,3 +11,7 @@ commands:
   grabTheSun:
     description: Enables and disables sun grabber (???????????????).
     usage: /<command> <grab/release>
+
+  testCommand:
+    description: Enables and disables testCommand.
+    usage: /<command> <?>

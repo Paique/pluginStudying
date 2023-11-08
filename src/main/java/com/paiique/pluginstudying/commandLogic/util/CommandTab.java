@@ -1,4 +1,4 @@
-package com.paiique.pluginstudying.commands.tabCompleter;
+package com.paiique.pluginstudying.commandLogic.util;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -10,11 +10,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class GrabTheSunAutoComplete implements TabCompleter {
-    private List<String> subcommands = new ArrayList<>(Arrays.asList("grab","release"));
-    Plugin plugin = null;
-    public GrabTheSunAutoComplete(Plugin plugin) {
+public class CommandTab implements TabCompleter {
+    private String[] subcommands;
+    private Plugin plugin;
+    public CommandTab(Plugin plugin, String[] subcommands) {
         this.plugin = plugin;
+        this.subcommands = subcommands;
     }
 
     @Override
